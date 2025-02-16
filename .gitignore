@@ -1,0 +1,4 @@
+storage/
+database/
+.DS_Store
+.mypy_cache/
