@@ -14,8 +14,31 @@ import AlbumArtwork from '@/components/AlbumArtwork'
 import Menu from '@/components/Menu'
 import PodcastEmptyPlaceholder from '@/components/PodcastEmptyPlaceholder'
 import Sidebar from '@/components/Sidebar'
-import { listenNowAlbums, madeForYouAlbums } from '@/data/albums'
+import { madeForYouAlbums } from '@/data/albums'
 import { playlists } from '@/data/playlists'
+import axios from 'axios'
+
+type Album = {
+  id: number
+  description: string
+  image : string
+  name : string
+}
+
+const data = ref<Album[]>([])
+
+onMounted(() => {
+axios.get('http://api.localhost/api/v1/playlists/', 
+    { 
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then((response) => {
+      console.log(response)
+      data.value = response.data
+    })
+})
+
 </script>
 
 <template>
@@ -76,7 +99,7 @@ import { playlists } from '@/data/playlists'
                     <ScrollArea>
                       <div class="flex space-x-4 pb-4">
                         <AlbumArtwork
-                          v-for="album in listenNowAlbums"
+                          v-for="album in data"
                           :key="album.name"
                           :album="album"
                           class="w-[250px]"

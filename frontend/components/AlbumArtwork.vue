@@ -31,7 +31,7 @@ withDefaults(defineProps<AlbumArtworkProps>(), {
       <ContextMenuTrigger>
         <div class="overflow-hidden rounded-md">
           <img
-            :src="album.cover"
+            :src="album.image"
             :alt="album.name"
             :width="width"
             :height="height"
@@ -84,7 +84,7 @@ withDefaults(defineProps<AlbumArtworkProps>(), {
         {{ album.name }}
       </h3>
       <p class="text-xs text-muted-foreground">
-        {{ album.artist }}
+        {{ album.description }}
       </p>
     </div>
   </div>
