@@ -1,5 +1,15 @@
 version: "3"
 services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+    networks:
+      - backend
+    depends_on:
+      - backend
+    ports:
+      - '3000:3000'
   backend:
     build:
       context: ./backend
