@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 
 # create migrate database
 poetry run python manage.py migrate
