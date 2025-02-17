@@ -1,7 +1,7 @@
 
 from django_seed import Seed
 from playlists.models import Playlist
-from utils.storage.minio import MinioStorage
+from utils.storage_service.minio import MinioStorage
 
 
 playlist = [
